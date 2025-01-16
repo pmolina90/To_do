@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, Button } from "react-native";
 import { styles } from "../styles/styles";
 
 interface TaskProps {
@@ -25,18 +25,5 @@ const Task: React.FC<TaskProps> = ({ text, completed, onComplete, onRemove }) =>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  listItem: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    width: "100%",
-    marginBottom: 10
-  },
-  task: {
-    width: 200
-  }
-});
 
 export default Task;

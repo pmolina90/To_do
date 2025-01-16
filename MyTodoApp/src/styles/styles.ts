@@ -43,6 +43,6 @@ export const styles = StyleSheet.create({
     width: 200,
   },
   error: {
-    color: "red",
+    borderColor: "red",
   },
 });

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TextInput, Button, StyleSheet } from "react-native";
+import { View, TextInput, Button } from "react-native";
 import { styles } from "../styles/styles";
 
 interface InputFieldProps {
@@ -22,24 +22,5 @@ const InputField: React.FC<InputFieldProps> = ({ value, onChange, onSubmit, erro
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  inputWrapper: {
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 20
-  },
-  inputBox: {
-    width: 200,
-    borderColor: "purple",
-    borderRadius: 8,
-    borderWidth: 2,
-    paddingLeft: 8
-  },
-  error: {
-    borderColor: "red"
-  }
-});
 
 export default InputField;
