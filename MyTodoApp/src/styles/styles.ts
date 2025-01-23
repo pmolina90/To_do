@@ -12,17 +12,13 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
   },
   inputBox: {
-    width: 200,
-    borderColor: "purple",
-    borderRadius: 8,
-    borderWidth: 2,
-    paddingLeft: 8,
+    flex: 1,
+    marginRight: 10,
   },
   title: {
-    fontSize: 40,
-    marginBottom: 40,
+    fontSize: 30,
+    marginTop: 40,
     fontWeight: "bold",
-    textDecorationLine: "underline",
   },
   subtitle: {
     fontSize: 20,
@@ -30,17 +26,11 @@ export const styles = StyleSheet.create({
     color: "purple",
   },
   listItem: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
     width: "100%",
     marginBottom: 10,
   },
   addButton: {
     alignItems: "flex-end",
-  },
-  task: {
-    width: 200,
   },
   error: {
     borderColor: "red",

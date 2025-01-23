@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { View, Text } from "react-native";
-import Task from "./components/Task";
-import InputField from "./components/InputField";
+import { Title, Paragraph, Button, Card, TextInput } from "react-native-paper";
 import { styles } from "./styles/styles";
 
 interface IToDo {
@@ -34,26 +33,37 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Todo List</Text>
-      <InputField
-        value={value}
-        onChange={(text) => {
-          setValue(text);
-          showError(false);
-        }}
-        onSubmit={handleSubmit}
-        error={error}
-      />
-      <Text style={styles.subtitle}>Your Tasks :</Text>
-      {toDoList.length === 0 && <Text>No to-do tasks available</Text>}
-      {toDoList.map((toDo, index) => (
-        <Task
-          key={`${index}_${toDo.text}`}
-          text={toDo.text}
-          completed={toDo.completed}
-          onComplete={() => toggleComplete(index)}
-          onRemove={() => removeItem(index)}
+      <Title style={styles.title}>My Todo</Title>
+      <View style={styles.inputWrapper}>
+        <TextInput
+          label="New Task"
+          value={value}
+          onChangeText={(text) => {
+            setValue(text);
+            showError(false);
+          }}
+          style={[styles.inputBox, error && styles.error]}
+          mode="outlined"
         />
+        <Button mode="contained" onPress={handleSubmit} style={styles.addButton}>
+          Add
+        </Button>
+      </View>
+      <Text style={styles.subtitle}>Your Tasks :</Text>
+      {toDoList.length === 0 && <Paragraph>No to-do tasks available</Paragraph>}
+      {toDoList.map((toDo, index) => (
+        <Card key={`${index}_${toDo.text}`} style={styles.listItem}>
+          <Card.Content>
+            <Paragraph>{toDo.text}</Paragraph>
+            <Paragraph>Completed: {toDo.completed ? 'Yes' : 'No'}</Paragraph>
+          </Card.Content>
+          <Card.Actions>
+            <Button onPress={() => toggleComplete(index)}>
+              {toDo.completed ? 'Undo' : 'Complete'}
+            </Button>
+            <Button onPress={() => removeItem(index)}>Remove</Button>
+          </Card.Actions>
+        </Card>
       ))}
     </View>
   );
